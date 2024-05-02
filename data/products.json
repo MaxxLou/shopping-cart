@@ -1,0 +1,19 @@
+{
+  "products": [
+  {
+    "sku": "item0001",
+    "name": "Super Dark",
+    "price": 9.99
+  },
+  {
+    "sku": "item0002",
+    "name": "Blue",
+    "price": 19.99
+  },
+  {
+    "sku": "item0003",
+    "name": "Gray",
+    "price": 29.99
+  }
+  ]
+}
