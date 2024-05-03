@@ -6,25 +6,25 @@ export type ProductType = {
   price: number,
 }
 
-// const initState: ProductType[] =[]
+const initState: ProductType[] =[]
 
-const initState: ProductType[] = [
-  {
-    "sku": "item0001",
-    "name": "Super Dark",
-    "price": 9.99
-  },
-  {
-    "sku": "item0002",
-    "name": "Blue",
-    "price": 19.99
-  },
-  {
-    "sku": "item0003",
-    "name": "Gray",
-    "price": 29.99
-  }
-]
+// const initState: ProductType[] = [
+//   {
+//     "sku": "item0001",
+//     "name": "Super Dark",
+//     "price": 9.99
+//   },
+//   {
+//     "sku": "item0002",
+//     "name": "Blue",
+//     "price": 19.99
+//   },
+//   {
+//     "sku": "item0003",
+//     "name": "Gray",
+//     "price": 29.99
+//   }
+// ]
 
 export type UseProductsContextType = {products: ProductType[]}
 
@@ -38,18 +38,18 @@ export const ProductsProvider = ({children}: ChildrenType): ReactElement => {
   const [products, setProducts] = useState<ProductType[]>(initState)
 
   // npx json-server -w data/products.json -p 3500
-  // useEffect(() => {
-  //   const fetchProducts = async (): Promise<ProductType[]> => {
-  //     const data = await fetch("http://localhost:3500/products").then(res => {
-  //       return res.json()
-  //     }).catch(err => {
-  //       if (err instanceof Error) console.log(err.message)
-  //     })
-  //   return data
-  //   }
+  useEffect(() => {
+    const fetchProducts = async (): Promise<ProductType[]> => {
+      const data = await fetch("http://localhost:3500/products").then(res => {
+        return res.json()
+      }).catch(err => {
+        if (err instanceof Error) console.log(err.message)
+      })
+    return data
+    }
 
-  //   fetchProducts().then(products => setProducts(products))
-  // }, [])
+    fetchProducts().then(products => setProducts(products))
+  }, [])
 
   return (
     <ProductsContext.Provider value={{products}} >
