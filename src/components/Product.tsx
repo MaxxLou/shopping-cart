@@ -28,7 +28,7 @@ const Product = ({product, dispatch, REDUCER_ACTIONS, inCart}:
   return content
 }
 
-function areProductsEqual({product: prevProduct, inCart: prevInCart}, {product: nextProduct, inCart: nextInCart}: ProductPropsType) {
+function areProductsEqual({product: prevProduct, inCart: prevInCart}: ProductPropsType, {product: nextProduct, inCart: nextInCart}: ProductPropsType) {
   return (
     Object.keys(prevProduct).every(key => {
       return prevProduct[key as keyof ProductType] === nextProduct[key as keyof ProductType]
